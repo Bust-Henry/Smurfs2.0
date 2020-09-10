@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smurfs2._0.Model
+namespace Smurfs2._0
 {
     class AccountManager
     {

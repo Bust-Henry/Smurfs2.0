@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MingweiSamuel.Camille.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,26 @@ namespace Smurfs2._0
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            try
+            {
+                LoLApi api = LoLApi.getInstance();
+                Console.WriteLine(api.getFlexRank("4damantium", api.getRegion("euw")));
+            }
+            catch(ApiNotInitializableException e)
+            {
+                Console.WriteLine(e.toString());
+            }
+            catch(ApiInvalidRegionException e)
+            {
+                Console.WriteLine(e.toString());
+            }
+            catch(ApiCouldNotBeReachedException e)
+            {
+                Console.WriteLine(e.toString());
+            }
+            /*Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form1());*/
         }
     }
 }
